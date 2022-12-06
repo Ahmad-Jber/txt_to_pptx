@@ -1,5 +1,4 @@
-import collections
-import collections.abc
+
 from pptx import Presentation
 from textblob import TextBlob
 from Summarizer import nltk_summarizer
@@ -18,7 +17,7 @@ def create_powerpoint(data, name):
     self.save(name)
 
 
-def delete_slide(prs, slide, name):
+def delete_slide(prs, slide):
     id_dict = {slide.id: [i, slide.rId] for i, slide in enumerate(prs.slides._sldIdLst)}
     slide_id = slide.slide_id
     prs.part.drop_rel(id_dict[slide_id][1])
