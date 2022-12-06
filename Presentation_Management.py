@@ -1,4 +1,3 @@
-
 from pptx import Presentation
 from textblob import TextBlob
 from Summarizer import nltk_summarizer
@@ -6,13 +5,14 @@ from Summarizer import nltk_summarizer
 self = Presentation()
 
 
+# Change "Title" as your needs
 def create_powerpoint(data, name):
     ppt_blob = TextBlob(data)
     for sentence in ppt_blob.sentences:
         slide = self.slides.add_slide(self.slide_layouts[1])
         for i in range(5):
             sent = str(sentence)
-            slide.shapes.title.text = "Patent Cooperation Treaty"
+            slide.shapes.title.text = "Title"
             slide.placeholders[1].text = nltk_summarizer(sent)
     self.save(name)
 
